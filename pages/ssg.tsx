@@ -1,10 +1,13 @@
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
-type SSGProps = {};
+type SSGProps = {
+  num: number
+};
 
 // データ取得を行わないページ
-const SSG: NextPage<SSGProps> = () => {
+const SSG: NextPage<SSGProps> = (props) => {
+  const { num } = props;
   return (
     <>
       <Head>
@@ -13,9 +16,21 @@ const SSG: NextPage<SSGProps> = () => {
       </Head>
       <main>
         <p>This Page made from SSG</p>
+        <span>{num}</span>
       </main>
     </>
   );
+}
+
+export const getStaticProps: GetStaticProps<SSGProps> = async (context) => {
+  const num = Math.random();
+  const message = '${num}を取得';
+  console.log(message);
+  return {
+    props: {
+      num
+    }
+  }
 }
 
 export default SSG;
