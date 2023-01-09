@@ -15,9 +15,7 @@ const Post: NextPage<PostProps> = (props) => {
   }
 
   return (
-    <>
-      <p>{`This page adapt to /posts/${id}`}</p>
-    </>
+    <p>{`This page adapt to /posts/${id}`}</p>
   );
 }
 
