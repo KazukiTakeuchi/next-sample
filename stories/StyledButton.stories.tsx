@@ -31,19 +31,3 @@ TemplateTest.args = {
   children: 'Primary',
 }
 
-const incrementAction = action('increment');
-
-export const Count = (props) => {
-  const [count, setCount] = useState(0)
-  const onClick = (e: React.MouseEvent) => {
-    // 現在のカウントを渡して、Actionを呼ぶ
-    incrementAction(e, count)
-    setCount((c) => c + 1)
-  }
-
-  return (
-    <StyledButton {...props} variant="primary" onClick={onClick}>
-      Count: {count}
-    </StyledButton>
-  )
-}
